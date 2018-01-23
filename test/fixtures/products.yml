@@ -7,8 +7,8 @@ one:
   price:       9.99
 
 two:
-  title:       MyString
-  description: MyText
+  title:       MyString2
+  description: MyText2
   image_url:   logo.png
   price:       9.99
 
@@ -19,4 +19,4 @@ ruby:
                language out there. If you need to get working programs
                delivered fast, you should add Ruby to your toolbox.
   price:       49.50
-  image_url:   ruby.png
+  image_url:   logo.png

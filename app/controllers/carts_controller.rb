@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart, only: %i[show edit update destroy]
 
   # GET /carts
   # GET /carts.json
@@ -9,8 +9,7 @@ class CartsController < ApplicationController
 
   # GET /carts/1
   # GET /carts/1.json
-  def show
-  end
+  def show; end
 
   # GET /carts/new
   def new
@@ -18,8 +17,7 @@ class CartsController < ApplicationController
   end
 
   # GET /carts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /carts
   # POST /carts.json
@@ -61,14 +59,25 @@ class CartsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cart
-      @cart = Cart.find(params[:id])
+  def add_product(product)
+    current_item = line_items.find_by(product_id: product.id)
+    if current_item
+      current_item.quantity += 1
+    else
+      current_item = line_items.build(product_id: product.id)
     end
+    current_item
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cart_params
-      params.fetch(:cart, {})
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cart
+    @cart = Cart.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def cart_params
+    params.fetch(:cart, {})
+  end
 end
