@@ -6,4 +6,5 @@ App.products = App.cable.subscriptions.create "ProductsChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
+    $(".store #main").html(data.html)
     # Called when there's incoming data on the websocket for this channel
