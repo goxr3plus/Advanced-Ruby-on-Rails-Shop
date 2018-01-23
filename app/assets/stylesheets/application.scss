@@ -15,7 +15,14 @@
  *= require_tree .
  *= require_self
  */
-body, body > p, body > ol, body > ul, body > td {margin: 8px !important}
+
+body,
+body > ol,
+body > p,
+body > td,
+body > ul {
+  margin: 8px !important;
+}
 
 #banner {
   position: relative;
@@ -62,6 +69,26 @@ body, body > p, body > ol, body > ul, body > td {margin: 8px !important}
     padding: 1em 2em;
     background: #101010;
 
+    div,
+    form {
+      display: inline;
+    }
+
+    input {
+      font-size: small;
+    }
+
+    #cart {
+      font-size: smaller;
+      color: white;
+
+      table {
+        border-top: 1px dotted #595;
+        border-bottom: 1px dotted #595;
+        margin-bottom: 10px;
+      }
+    }
+
     ul {
       padding: 0;
 
@@ -76,13 +103,11 @@ body, body > p, body > ol, body > ul, body > td {margin: 8px !important}
     }
   }
 }
-
 @media all and (max-width: 800px) {
   #columns {
     flex-direction: column-reverse;
   }
 }
-
 @media all and (max-width: 500px) {
   #banner {
     height: 1em;

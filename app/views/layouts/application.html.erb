@@ -6,8 +6,7 @@
 
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all',
-    'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -18,17 +17,32 @@
     </div>
     <div id="columns">
       <div id="side">
-        <ul>
-          <li><a href="http://www....">Home</a></li>
-          <li><a href="http://www..../faq">Questions</a></li>
-          <li><a href="http://www..../news">News</a></li>
-          <li><a href="http://www..../contact">Contact</a></li>
-        </ul>
+        <div id="cart">
+          <% if @cart %>
+            <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+            <%= render @cart %>
+          <%end %>
+        <% end %>
       </div>
-      <div id="main">
-        <%= yield %>
-        <%= debug(params) if Rails.env.development? %>
-      </div>
+      <ul>
+        <li>
+          <a href="http://www....">Home</a>
+        </li>
+        <li>
+          <a href="http://www..../faq">Questions</a>
+        </li>
+        <li>
+          <a href="http://www..../news">News</a>
+        </li>
+        <li>
+          <a href="http://www..../contact">Contact</a>
+        </li>
+      </ul>
     </div>
-  </body>
+    <div id="main">
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </div>
+</body>
 </html>
