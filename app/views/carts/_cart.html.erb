@@ -10,5 +10,5 @@
 
   </table>
 
-  <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure you want to empty your cart?' } , remote:true %>
 <% end %>

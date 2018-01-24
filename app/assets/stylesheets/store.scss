@@ -3,6 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .store {
+
+  input[type=submit] {
+    background-color: #101010;
+    font-weight: bold;
+    color:white;
+    font-family: Verdana, Geneva, sans-serif;
+    cursor: pointer;
+  }
+
   h1 {
     margin: 0;
     padding-bottom: 0.5em;
