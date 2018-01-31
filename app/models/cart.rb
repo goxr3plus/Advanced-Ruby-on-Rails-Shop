@@ -16,4 +16,6 @@ class Cart < ApplicationRecord
     # price * quantity
     line_items.to_a.sum(&:total_price)
   end
+
+
 end

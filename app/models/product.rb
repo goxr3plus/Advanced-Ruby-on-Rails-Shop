@@ -14,6 +14,18 @@ class Product < ApplicationRecord
   has_many :orders, through: :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
 
+  attr_accessor :title
+
+  def attributes=(hash)
+    hash.each do |key, value|
+      send("#{key}=", value)
+    end
+  end
+
+  def attributes
+    {'title' => self.title}
+  end
+
   private
 
   # ensure that there are no line items referencing this product

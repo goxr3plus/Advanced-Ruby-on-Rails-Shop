@@ -10,6 +10,10 @@
 
   </table>
 
-  <%= button_to "Checkout", new_order_path, method: :get %>
-  <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure you want to empty your cart?' } , remote:true %>
+  <% unless current_page?(new_order_path) %>
+    <%= button_to "Checkout", new_order_path, method: :get %>
+    <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure you want to empty your cart?' } , remote:true %>
+  <%else %>
+    <%= button_to "Cancel Order",store_index_url , method: :get%>
+  <% end %>
 <% end %>
