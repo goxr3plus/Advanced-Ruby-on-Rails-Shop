@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  include ActiveModel::Serializers::Xml
   validates :title, :description, :image_url, presence: true
   validates :title, length: { minimum: 10,
                               too_short: 'Title should be at least %{count} characters' }
@@ -10,6 +11,7 @@ class Product < ApplicationRecord
   }
 
   has_many :line_items
+  has_many :orders, through: :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
 
   private
