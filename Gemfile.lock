@@ -100,7 +100,8 @@ GEM
     nokogiri (1.11.4-x64-mingw32)
       racc (~> 1.4)
     public_suffix (3.0.1)
-    puma (3.12.6)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (0.8.2)
@@ -191,7 +192,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails
-  puma (~> 3.12)
+  puma (~> 4.3)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
   selenium-webdriver
